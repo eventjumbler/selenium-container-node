@@ -10,7 +10,7 @@ rm -f /tmp/.X11-lock
 Xvfb :11 -screen 0 $SCREENSIZE &
 sleep 0.5
 
-java -D-Dwebdriver.firefox.bin="/usr/bin/firefox" -Dwebdriver.gecko.driver=/usr/local/lib/geckodriver -jar selenium-server-standalone-3.6.0.jar -role hub &
+java -D-Dwebdriver.firefox.bin="/usr/bin/firefox" -Dwebdriver.gecko.driver=/usr/local/lib/geckodriver -jar selenium-server-standalone-3.6.0.jar -role hub -timeout=30 -browserTimeout=600 &
 java -jar selenium-server-standalone-3.6.0.jar -role node -hub http://localhost:4444/grid/register
 exit
 
